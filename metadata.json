@@ -1,0 +1,6 @@
+{
+  "name": "SchoolManager",
+  "description": "Plateforme SaaS multi-établissements de gestion administrative, pédagogique et financière pour les écoles du Cameroun et d'Afrique francophone.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

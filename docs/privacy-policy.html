@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité — SchoolManager</title>
+  <style>
+    :root {
+      --navy: #0f294a;
+      --blue: #1e5bb8;
+      --light-bg: #f4f7fb;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --border: #dce5f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+    }
+    header p {
+      margin: 0;
+      opacity: 0.92;
+      font-size: 1rem;
+    }
+    main {
+      max-width: 860px;
+      margin: -24px auto 48px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 24px rgba(15, 41, 74, 0.06);
+    }
+    h2 {
+      color: var(--navy);
+      font-size: 1.2rem;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid var(--light-bg);
+      padding-bottom: 6px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+    .meta {
+      background: var(--light-bg);
+      border-left: 4px solid var(--blue);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+      padding-bottom: 28px;
+    }
+    a { color: var(--blue); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Politique de confidentialité — SchoolManager</h1>
+    <p>« Votre établissement, mieux organisé. »</p>
+  </header>
+
+  <main>
+    <div class="meta">
+      <strong>Application :</strong> SchoolManager (<code>com.aistudio.schoolmanager.cmrxfk</code>)<br />
+      <strong>Date d'entrée en vigueur :</strong> 17 novembre 2026<br />
+      <strong>Contact responsable :</strong> <a href="mailto:yanndirane@gmail.com">yanndirane@gmail.com</a>
+    </div>
+
+    <p>
+      La présente politique de confidentialité décrit la manière dont l'application mobile <strong>SchoolManager</strong>
+      collecte, utilise, protège et conserve les informations des utilisateurs et des établissements scolaires
+      (écoles maternelles et primaires, collèges, lycées, universités et instituts).
+    </p>
+
+    <h2>1. Données collectées</h2>
+    <ul>
+      <li><strong>Données de compte et d'authentification :</strong> nom complet affiché, adresse e-mail, identifiant technique utilisateur (UID) et rôle attribué dans l'établissement (Administrateur d'établissement, Directeur, Secrétaire, Comptable, Enseignant, Élève ou Parent).</li>
+      <li><strong>Données administratives et pédagogiques saisies par l'établissement :</strong> dossiers d'élèves et d'étudiants (nom, prénom, genre, date et lieu de naissance, matricule unique, classe ou filière, coordonnées du parent/tuteur légal), fiches enseignants, matières/UE, emplois du temps, notes, présences et résultats annuels.</li>
+      <li><strong>Données financières et documentaires :</strong> suivi des frais de scolarité, références de reçus, historique des paiements, annonces internes, attestations et bulletins générés au format PDF ou CSV.</li>
+      <li><strong>Journaux d'audit :</strong> historique des actions administratives importantes au sein de chaque établissement pour garantir la sécurité et la traçabilité.</li>
+    </ul>
+
+    <h2>2. Finalités d'utilisation</h2>
+    <p>Les données traitées servent exclusivement au fonctionnement de la plateforme de gestion scolaire :</p>
+    <ul>
+      <li>Authentifier les utilisateurs et appliquer un contrôle d'accès strict par établissement et par rôle.</li>
+      <li>Assurer la gestion des inscriptions, des classes, des notes, des absences, des paiements et des résultats par matricule.</li>
+      <li>Générer les documents officiels (bulletins, relevés de notes, reçus de paiement, attestations) à la demande de l'établissement ou des familles autorisées.</li>
+      <li>Transmettre, uniquement si l'établissement configure ses propres API externes, les requêtes de paiement (MTN MoMo / Orange Money) ou notifications (SMS / WhatsApp).</li>
+    </ul>
+    <p><strong>Aucune donnée n'est vendue, louée ou utilisée à des fins publicitaires.</strong></p>
+
+    <h2>3. Hébergement, isolation et sécurité</h2>
+    <ul>
+      <li><strong>Architecture multi-tenant isolée :</strong> chaque établissement dispose de son propre espace isolé dans Google Cloud Firestore ; un utilisateur n'accède qu'aux données des établissements auxquels il est explicitement rattaché et selon son rôle.</li>
+      <li><strong>Authentification sécurisée :</strong> l'accès s'effectue via Google Sign-In (Firebase Authentication / Jetpack Credential Manager).</li>
+      <li><strong>Chiffrement :</strong> toutes les communications entre l'application et les serveurs Firebase sont chiffrées en transit (HTTPS/TLS).</li>
+      <li><strong>Vérification des résultats :</strong> la consultation des résultats par matricule exige la correspondance du matricule, de la date de naissance et d'un code confidentiel haché.</li>
+    </ul>
+
+    <h2>4. Permissions Android utilisées</h2>
+    <p>
+      SchoolManager applique le principe de minimisation des permissions et demande uniquement l'accès au réseau
+      (<code>INTERNET</code> et <code>ACCESS_NETWORK_STATE</code>). L'importation de fichiers (CSV) et l'ouverture ou le partage
+      de documents PDF s'effectuent via le sélecteur système Android sans permission d'accès large au stockage de l'appareil.
+    </p>
+
+    <h2>5. Données concernant les élèves et mineurs</h2>
+    <p>
+      Les dossiers des élèves mineurs sont créés et administrés exclusivement par les responsables habilités de
+      l'établissement scolaire. Les comptes « Élève » et « Parent » ne peuvent accéder qu'aux dossiers auxquels ils ont été
+      explicitement associés par la direction de l'établissement.
+    </p>
+
+    <h2>6. Conservation et suppression des données</h2>
+    <p>
+      Les données sont conservées pendant la durée paramétrée par l'établissement scolaire et tant que le compte reste actif.
+      Tout utilisateur ou établissement peut demander la consultation, la rectification ou la suppression de ses données ou de son compte en contactant :
+      <a href="mailto:yanndirane@gmail.com">yanndirane@gmail.com</a>.
+    </p>
+
+    <h2>7. Modifications de cette politique</h2>
+    <p>
+      Cette politique de confidentialité peut être mise à jour en cas d'évolution fonctionnelle ou réglementaire.
+      La date d'entrée en vigueur figurant en haut de cette page reflète toujours la dernière version publiée.
+    </p>
+  </main>
+
+  <footer>
+    &copy; 2026 SchoolManager — Tous droits réservés.
+  </footer>
+</body>
+</html>
